@@ -17,15 +17,23 @@
 </head>
 
 <body>
-    <form action="javascript:void(0)" method="post" onsubmit="createUser()">
-        <fieldset>
-            <legend>Create user</legend>
-            <input type="text" name="username" id="username" placeholder="Username" required>
-            <input type="password" name="password" id="password" placeholder="Password" minlength="6" required>
-            <input type="submit" value="Create user">
-        </fieldset>
-    </form>
-        
+    <div class="logonScreen">
+        <h2>Create new user</h2>
+        <div class="form">
+            <form action="javascript:void(0)" method="post" onsubmit="createUser()">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" placeholder="Enter username" required>
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" placeholder="Enter password" minlength="6"
+                    required>
+                <input type="submit" value="Create user">
+                <label>
+                    <input type="checkbox" checked="checked" name="remember"> Remember me
+                  </label>
+            </form>
+        </div>
+    </div>
+
     <form action="javascript:void(0)" method="post" onsubmit="login()">
         <fieldset>
             <legend>Login</legend>

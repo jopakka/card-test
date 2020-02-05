@@ -80,8 +80,16 @@ function createUser() {
     let email = document.getElementById("username").value;
     let password = document.getElementById("password").value;
 
+    let key = firebase.auth
+
     email += "@randomemail.com";
-    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then(() =>{
+            console.log("UserId: " + firebase.auth().currentUser.uid);
+            db.collection("users").doc(firebase.auth().currentUser.uid).set({
+                money: 500
+            });
+        }).catch(function (error) {
         var errorCode = error.code;
         var errorMessage = error.message;
         console.log(errorCode);
